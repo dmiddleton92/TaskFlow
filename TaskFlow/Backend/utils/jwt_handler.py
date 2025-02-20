@@ -4,9 +4,9 @@ from config import JWT_SECRET_KEY, ALGORITHM
 
 def create_access_token(data: dict, expires_delta: int = 30):
     to_encode = data.copy()
-    expire = datatime.utcow() + timedelta(minutes=expires_delta)
+    expire = datetime.utcow() + timedelta(minutes=expires_delta)
     to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, JWT_SECRET, algorithm=ALGORITHM)
+    return jwt.encode(to_encode, JWT_SECRET_KEY, algorithm=ALGORITHM)
 
 
 def decode_access_token(token: str):
